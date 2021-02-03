@@ -1,6 +1,6 @@
 ---
 title: GAIA lime application experiment sampling frame
-author: M.G. Walsh, J.V. Silva
+author: M.G. Walsh and J.V. Silva
 date: "`r format(Sys.time(), '%d, %B, %Y')`"
 output:
   html_document:
@@ -130,5 +130,5 @@ w ## plot widget
 
 # Follow-up on the ground
 
-Note that follow-up on the ground will be needed to actually install any actual field trials. This will require negogiations with farmers and government representatives in the proposed locations and also a pre-survey of the prevailing soil conditions and cropping systems for such trials.
+Note that follow-up on the ground will be needed to actually install any actual field trials. This will require negogiations with farmers and government representatives in the proposed locations and also a pre-survey of the prevailing soil conditions and cropping systems for such trials. We will provide seperate guidance about the field procedures.
 
