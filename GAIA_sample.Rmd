@@ -125,7 +125,6 @@ w <- leaflet() %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(samp$lon, samp$lat, clusterOptions = markerClusterOptions())
 w ## plot widget 
-saveWidget(w, "GAIA_sample.html", selfcontained = T) ## save widget
 ```
 
 # Follow-up on the ground
