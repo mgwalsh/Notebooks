@@ -50,8 +50,6 @@ grids <- stack(glist)
 
 The subsequent chunk then performs the steps of drawing a spatially balanced trial location sample from the ROI. We use the `lcube` package from the `BalancedSampling` library in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample here. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
 
-In this particular example, potential trial sites falling within the ROI were selected purely for spatial balance, which entails that the mean coordinates of sample sites are close to the mean coordinates of all points in the sample frame and have adequate spatial spread. This ensures that the observations are spread out rather than clustered with respect to the spatial coordinates, see [Grafström and Schelin (2014)](https://cran.r-project.org/web/packages/BalancedSampling/index.html). The following chunk performs those calculations.
-
 ```{r}
 # Sample setup ------------------------------------------------------------
 # create a ROI image based on a cropland mask, the relevant GAIA districts and soil pH predictions 
@@ -68,7 +66,7 @@ index <- as.data.frame(cbind(coord, index))
 rmask <- index[which(index$index == 1),]
 ```
 
-This next chunk then draws the spatially balanced sample of the potential GAIA lime trial locations.
+In this particular example, potential trial sites falling within the ROI were selected purely for spatial balance, which entails that the mean coordinates of sample sites are close to the mean coordinates of all points in the sample frame and have adequate spatial spread. This ensures that the observations are spread out rather than clustered with respect to the spatial coordinates, see [Grafström and Schelin (2014)](https://cran.r-project.org/web/packages/BalancedSampling/index.html). The following chunk performs those calculations. This next chunk then draws the spatially balanced sample of the potential GAIA lime trial locations.
 
 ```{r}
 # Spatially balanced sampling ---------------------------------------------
