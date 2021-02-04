@@ -121,7 +121,7 @@ You can also generate a zoomable map of the proposed trial locations with the `l
 # Sampling map widget -----------------------------------------------------
 # render map
 w <- leaflet() %>%
-  setView(lng = mean(samp$lon), lat = mean(samp$lat), zoom = 4) %>%
+  setView(lng = mean(samp$lon), lat = mean(samp$lat), zoom = 3) %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(samp$lon, samp$lat, clusterOptions = markerClusterOptions())
 saveWidget(w, "GAIA_sample.html", selfcontained = T) ## save widget
