@@ -115,7 +115,7 @@ colnames(samp) <- c("L1","L2","gid","lon","lat")
 write.csv(samp, "GAIA_sample.csv", row.names = F)
 ```
 
-You can also generate a zoomable map of the proposed trial locations with the `leaflet` package. This shows the proposed distribution of trial sites and also help with navigation and operational planning on the ground.
+You can also generate a zoomable map of the proposed trial locations with the `leaflet` package. This shows the proposed distribution of trial sites, which will also help with navigation and operational planning on the ground.
 
 ```{r}
 # Sampling map widget -----------------------------------------------------
@@ -130,5 +130,5 @@ w ## plot widget
 
 # Follow-up on the ground
 
-Note that follow-up on the ground will be needed to actually install any actual field trials. This will require negogiations with farmers and government representatives in the proposed locations and also a pre-survey of the prevailing soil conditions and cropping systems for such trials. We will provide seperate guidance about the field procedures.
+Note that follow-up on the ground will be needed to actually install any actual field trials. This will require negogiations with farmers and government representatives at the proposed locations and also a pre-survey of the prevailing soil conditions and cropping systems for such trials. We will provide seperate guidance about the relevant field procedures.
 
