@@ -141,7 +141,7 @@ You can also generate a zoomable map of the proposed sampling locations with the
 ```{r}
 # render map
 w <- leaflet() %>%
-  setView(lng = mean(samp$lon), lat = mean(samp$lat), zoom = 9) %>%
+  setView(lng = mean(samp$lon), lat = mean(samp$lat), zoom = 4) %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(samp$lon, samp$lat, clusterOptions = markerClusterOptions())
 w ## plot widget 
