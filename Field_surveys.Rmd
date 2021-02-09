@@ -153,7 +153,7 @@ After careful GeoSurvey interpretations (e.g., see at: [GeoSurvey data predictio
 
 MobileSurvey is *stop-and-measure* based, meaning that any observations and measurements (O&M) are done when you stop your car, motorbike or walk-in and do your observations and sample collections over a predefined area and record their georeference. As long as the underlying sampling frame that is used to determine locations is geographically representative of a given ROI, these data are suitable for generating unbiased, georefenced estimates of use-cases for crop distribution modeling, predictive soil and plant nutrient mapping, crop yield monitoring, agricultural input monitoring, electrification, mechanization and irrigation potentials and the development of environmental impact assessments.
 
-You can also use similar protocols for geotagging any rock, soil, plant and livestock biomarker samples at the locations that you visit. All physical samples should receive *Universally Unique IDs* that are embedded in [QR-code labels](https://tag.qed.ai/sheet/) for each sample, which are tagged with metadata and the relevant O&M in the field. This process also allows tracking any sample through various (MIR, XRF and/or wet chemistry) laboratory processes and to curate physical samples at your various laboratory sample storage facilities.
+You can also use similar protocols for geotagging any rock, soil, plant and livestock biomarker samples at the locations that you visit. All physical samples should receive *Universally Unique IDs* that are embedded in [QR-code labels](https://tag.qed.ai/sheet/) for each sample, which are tagged with metadata and the relevant O&M in the field. This process also allows tracking any sample through various (MIR, XRF and/or wet chemistry) laboratory processes and to curate physical samples at your laboratory sample storage facilities.
 
 You will need to print soil or any other physiscal sample labels. These are generated as machine-readable paper on the basis of a UUID (or universally unique sample ID). The reason for having a unique machine-readable label is to be able to decisively track any given sample that is collected from the field, through the subsequent laboratory processes, and into the corresponding databases. Batches of QR code labels can be generated for printing at: [TAG](https://tag.qed.ai/sheets). The physical labels will look something like the example shown below depending on how they are actually printed on the sticky label paper.
 
@@ -170,7 +170,7 @@ knitr::include_graphics("figures/QR_label.png")
 1. A 5-liter plastic jerry can for water.
 1. A rope or cable marked with colored tape at 2.82, 4.61 and 5.64 meters.
 1. Sturdy, recyclable ~1-2 liter plastic containers for each rock/soil/plant/livestock sample.
-1. Sticky QR code labels, 2 for each sample container.
+1. Sticky QR code labels, 2 for each sample container (see above).
 
 ## Before you go into the field:
 
