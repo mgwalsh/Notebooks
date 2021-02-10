@@ -18,12 +18,13 @@ This notebook describes setting up a representative [sampling frame](https://en.
 These are the R-packages that you will need to run and reproduce the spatially balanced sampling script that we are proposing.
 
 ```{r}
-# install.packages(c("rgdal","raster","BalancedSampling","leaflet","htmlwidgets"), dependencies=T)
+# install.packages(c("rgdal","raster","BalancedSampling","DT","leaflet","htmlwidgets"), dependencies=T)
 suppressPackageStartupMessages({
   require(rgdal)
   require(raster)
   require(sp)
   require(BalancedSampling)
+  require(DT)
   require(leaflet)
   require(htmlwidgets)
 })
@@ -57,7 +58,7 @@ The subsequent chunk then then sets-up the layers for drawing a spatially balanc
 cp <- 1    ## set cropland mask to 1 (present)
 bd <- 0.5  ## set maximum distance to the nearest "buildings" (in km) ... for logistical reasons
 roi <- overlay(grids, fun=function(x) 
-{return(ifelse(x[4] == cp && x[2] <= bd, 1, 0))}) ## extracts ROI
+{return(ifelse(x[4] == cp && x[2] <= bd, 1, 0))}) ## extracts the ROI
 
 # extract ROI coordinates
 coord <- coordinates(roi)
@@ -66,7 +67,7 @@ index <- as.data.frame(cbind(coord, index))
 rmask <- index[which(index$index == 1),]
 ```
 
-Potential survey sites falling within the ROI were selected purely for spatial balance, which entails that the mean coordinates of sample sites are close to the mean coordinates of all points in the sample frame and have adequate spatial spread. This ensures that the observations are spread out rather than clustered with respect to the spatial coordinates, see [Grafström and Schelin (2014)](https://cran.r-project.org/web/packages/BalancedSampling/index.html). This next chunk then draws the spatially balanced sample of the cropland sampling locations.
+Potential survey sites falling within the ROI were selected purely for spatial balance, which entails that the mean coordinates of sample sites are close to the mean coordinates of all points in the sample frame and have adequate spatial spread. This ensures that the observations are spread out rather than clustered with respect to the spatial coordinates, see [Grafström and Schelin (2014)](https://cran.r-project.org/web/packages/BalancedSampling/index.html). This next chunk then draws the spatially balanced sample of the proposed cropland sampling locations.
 
 ```{r}
 # Spatially balanced sampling ---------------------------------------------
@@ -111,6 +112,12 @@ sloc <- as.data.frame(sloc)
 samp <- cbind(gadm[ ,c(4,6,8,10,12)], sloc)
 colnames(samp) <- c("province","district","sector","cell","village","gid","lon","lat")
 write.csv(samp, "RW_cropland_sample.csv", row.names = F)
+```
+
+This is the output data frame `samp` of the proposed sampling locations with their corresponding long/lat coordinates, which can also be sorted by various administrative units and/or `GID`.
+
+```{r}
+datatable(samp)
 ```
 
 You can also generate a zoomable map of the proposed survey locations with the `leaflet` package. This shows the proposed distribution of survey sites, which will also help with navigation and operational planning on the ground.
