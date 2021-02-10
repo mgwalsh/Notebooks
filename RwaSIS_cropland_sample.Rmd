@@ -123,7 +123,7 @@ w <- leaflet() %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(samp$lon, samp$lat, clusterOptions = markerClusterOptions())
 w ## plot widget 
-saveWidget(w, "RwaSIS_sample.html", selfcontained = T) ## save widget
+saveWidget(w, "RwaSIS_cropland_sample.html", selfcontained = T) ## save widget
 ```
 
 # Follow-up on the ground
