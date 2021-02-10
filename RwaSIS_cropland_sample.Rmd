@@ -11,7 +11,9 @@ output:
 
 # Introduction
 
-This notebook describes setting up a cropland [sampling frame](https://en.wikipedia.org/wiki/Sampling_frame) that provides representative spatial (spatially balanced) coverage accross the croplands or RwaSIS [Region of Interest (ROI)](https://en.wikipedia.org/wiki/Region_of_interest) in Rwanda. Selecting an ROI for ground sampling and the subsequent sample densities for survey and/or experimentation is a critical planning step, because it determines both the main and recurrent costs of any adaptive mapping or monitoring program as well as the resulting precision and accuracy of inferences and predictions that are made about that ROI, over time. A geograhically consistent field sampling plan for field surveys and experiments should therefore always be defined in terms of the immediate needs and constraints of the measurement, mapping and monitoring tasks at hand, but within a long-term planning context.
+This notebook describes setting up a spatially representative [sampling frame](https://en.wikipedia.org/wiki/Sampling_frame) that provides balanced coverage accross the croplands of Rwanda. Croplands are the primary [Region of Interest (ROI)](https://en.wikipedia.org/wiki/Region_of_interest) and target of the [RwaSIS project](https://minagri.prod.risa.rw/updates/news-details/rwanda-launches-soil-information-service-project-to-improve-agriculture-productivity). 
+
+Selecting a sampling frame for ground ground observations and measurements and/or experiments is a critical planning step, because it determines both the main and recurrent costs of any adaptive mapping or monitoring program as well as the resulting precision and accuracy of inferences and predictions that are made about that ROI, over time. A geograhically consistent field sampling frame for field surveys and experiments should therefore always be defined in terms of the immediate needs and constraints of the measurement, mapping and monitoring tasks at hand, but within a long-term planning context.
 
 # RwaSIS cropland sampling frame R-script
 
