@@ -29,7 +29,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-The following chunk downloads the needed geotiffs and shape file, which define the RwaSIS project's ROI (i.e, cropland && distance to buildings < 0.5 km) in Rwanda.
+The following chunk downloads the needed and publicly available geotiffs and shape file that define the RwaSIS project's ROI (i.e, cropland && distance to buildings < 0.5 km).
 
 ```{r}
 # Data setup --------------------------------------------------------------
