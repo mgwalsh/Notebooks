@@ -79,11 +79,12 @@ coord <- coordinates(roi)
 index <- extract(roi, coord)
 index <- as.data.frame(cbind(coord, index))
 rmask <- index[which(index$index == 1),]
+
 ```
 
-This provides a plot of the ROI, and extracts the needed spatial coordinates of the sampling frame. Note that these constraints are intended to keep the ROI within a generally accessible range for field surveyors (by car, motorcycle or on foot).
+This provides a plot of the ROI, and extracts the needed spatial coordinates of the sampling frame. Note that in this case the constraints are intended to keep the ROI within a generally accessible range for field surveyors (by car, motorcycle or on foot).
 
-The subsequent chunk then then sets up the layers for drawing a spatially balanced trial location sampling frame from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
+The subsequent chunk then then sets up the layers for drawing a spatially balanced trial location sampling frame from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R respectively [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
 
 ```{r}
 # set sampling parameters
@@ -157,6 +158,20 @@ You will need to print soil or any other physiscal sample labels. These are gene
 knitr::include_graphics("figures/QR_label.png")
 ```
 
+## Before you go into the field:
+
+1. Install the needed ODK forms. To use the ODK soil sample login form you initially need to install the following applications on your Android device (phone or tablet): Use the following link to [KoBoCollect](https://support.kobotoolbox.org/kobocollect-android.html) for detailed instructions. 
+1. something like [XZing]() barcode scanner (to read QR code labels on your device).
+1. something like [GPS Essentials]() (if you are going to be using your phone or tablet for field navigation rather than a separate GPS unit).
+
+You can locate the needed apps on Google Play by searching for them by name. Note that you will need an Internet connection for this. Once you have installed the software on your Android device: start [KoBoCollect]() and then set the server address that will link you to the relevant forms: General Settings > Server. The General Settings menu can be accessed by tapping the <left> menu button on your device.
+
+* Don???t worry about entering a Username or Password. They are not needed.
+* Set the URL field to e.g.: http://??.
+
+This allows you to download blank forms for use on your Android device. It also allows you to save any completed forms to a database on the KoBoToolbox server. To download the blank ODK Soil sample form to your device, follow these 3 steps:
+
+
 ## You will need the following equipment and materials:
 
 1. An Android smart phone or tablet.
@@ -168,15 +183,5 @@ knitr::include_graphics("figures/QR_label.png")
 1. Sturdy, recyclable ~1-2 liter plastic containers for each rock/soil/plant/livestock sample.
 1. Sticky QR code labels, 2 for each sample container (see above).
 
-## Before you go into the field:
+ 
 
-1. Install the needed ODK forms. To use the ODK soil sample login form you initially need to install the following applications on your Android device (phone or tablet): Use the following link to [KoBoCollect](https://support.kobotoolbox.org/kobocollect-android.html) for detailed instructions. 
-1. something like [XZing]() barcode scanner (to read QR code labels on your device).
-1. something like [GPS Essentials]() (if you are going to be using your phone or tablet for field navigation rather than a separate GPS unit).
-
-You can locate the needed apps on Google Play by searching for them by name. Note that you will need an Internet connection for this. Once you have installed the software on your Android device: start [KoBoCollect]() and then set the server address that will link you to the relevant forms: General Settings > Server. The General Settings menu can be accessed by tapping the <left> menu button on your device. 
-
-* Don???t worry about entering a Username or Password. They are not needed.
-* Set the URL field to e.g.: http://??.
-
-This allows you to download blank forms for use on your Android device. It also allows you to save any completed forms to a database on the KoBoToolbox server. To download the blank ODK Soil sample form to your device, follow these 3 steps:
