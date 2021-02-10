@@ -15,7 +15,7 @@ This notebook describes setting up a cropland sampling frame that provides repre
 
 # RwaSIS cropland sampling plan R-script
 
-These are the R-packages that you will need to run the spatially balanced sampling script that we are proposing.
+These are the R-packages that you will need to run and reproduce the spatially balanced sampling script that we are proposing.
 
 ```{r}
 # install.packages(c("rgdal","raster","BalancedSampling","leaflet","htmlwidgets"), dependencies=T)
