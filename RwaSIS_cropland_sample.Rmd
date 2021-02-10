@@ -30,7 +30,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-The following chunk downloads the needed and publicly available geotiffs and shape file that define the RwaSIS project's ROI (i.e, cropland && distance to buildings < 0.5 km).
+The following chunk downloads the needed and publicly available geotiffs and shape file that define the RwaSIS project's main ROI constraints (i.e, cropland && distance to buildings < 0.5 km).
 
 ```{r}
 # Data setup --------------------------------------------------------------
@@ -114,13 +114,13 @@ colnames(samp) <- c("province","district","sector","cell","village","gid","lon",
 write.csv(samp, "RW_cropland_sample.csv", row.names = F)
 ```
 
-This is the output data frame `samp` of the proposed sampling locations with their corresponding long/lat coordinates, which can also be sorted by various administrative units and/or `GID`.
-
-```{r}
+This is the corresponding output data frame `samp` of the proposed sampling locations with their corresponding lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file (`RW_cropland_sample.csv`) into your working directory, which you can use as waypoint input to a GPS.  
+\
+```{r, echo=FALSE}
 datatable(samp)
 ```
-
-You can also generate a zoomable map of the proposed survey locations with the `leaflet` package. This shows the proposed distribution of survey sites, which will also help with navigation and operational planning on the ground.
+\
+You can also generate a zoomable map of the proposed survey locations with the `leaflet` package. This shows the proposed distribution of the survey sites, which will help with navigation and operational planning on the ground.
 
 ```{r}
 # Sampling map widget -----------------------------------------------------
@@ -129,11 +129,10 @@ w <- leaflet() %>%
   setView(lng = mean(samp$lon), lat = mean(samp$lat), zoom = 8) %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(samp$lon, samp$lat, clusterOptions = markerClusterOptions())
-saveWidget(w, "RwaSIS_cropland_sample.html", selfcontained = T) ## save widget
+saveWidget(w, "RwaSIS_cropland_sample.html", selfcontained = T) ## save map widget
 w ## plot widget 
 ```
 
 # Follow-up on the ground
 
-Note that follow-up on the ground will be needed to actually install any actual surveys and/or field trials. This will require negogiations with farmers, government, private sector and civil society representatives at the proposed locations and perhaps also a pre-survey of the prevailing cropping systems and soil condition for such surveys or experiments. We will provide additional guidance about the relevant field procedures and potential experimental setups ... stay tuned.
-
+Note that follow-up on the ground will be needed to actually install any actual survey locations and/or field trials. This will require negogiations with farmers, government, private sector and civil society representatives at the proposed locations and perhaps also a pre-survey of the prevailing cropping systems and soil condition for such surveys or experiments. We will provide additional guidance about the relevant field procedures and potential experimental setups ... stay tuned.
