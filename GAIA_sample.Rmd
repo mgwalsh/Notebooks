@@ -18,12 +18,13 @@ This notebook describes setting up a field sampling plan that provides represent
 These are the R-packages that you will need to run the spatially balanced sampling script that we are proposing.
 
 ```{r}
-# install.packages(c("rgdal","raster","BalancedSampling","leaflet","htmlwidgets"), dependencies=T)
+# install.packages(c("rgdal","raster","BalancedSampling","DT","leaflet","htmlwidgets"), dependencies=T)
 suppressPackageStartupMessages({
   require(rgdal)
   require(raster)
   require(sp)
   require(BalancedSampling)
+  require(DT)
   require(leaflet)
   require(htmlwidgets)
 })
@@ -113,7 +114,15 @@ colnames(samp) <- c("L1","L2","gid","lon","lat")
 write.csv(samp, "GAIA_sample.csv", row.names = F)
 ```
 
-You can also generate a zoomable map of the proposed trial locations with the `leaflet` package. This shows the proposed distribution of trial sites, which will also help with navigation and operational planning on the ground.
+This is the corresponding output data frame `samp` of the proposed sampling locations with their corresponding lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file `GAIA_sample.csv` into your working directory, which you can use as your waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)) for in-the-field navigation.
+
+\
+```{r, echo=FALSE}
+datatable(samp)
+```
+\
+
+You can also generate a zoomable map of the proposed trial locations with the `leaflet` package. This shows the proposed distribution of trial sites, which will help with navigation and operational planning on the ground.
 
 ```{r}
 # Sampling map widget -----------------------------------------------------
