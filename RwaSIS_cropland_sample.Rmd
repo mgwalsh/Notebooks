@@ -55,7 +55,7 @@ The subsequent chunk then then sets-up the layers for drawing a spatially balanc
 # Sample setup ------------------------------------------------------------
 # create a ROI image based on cropland mask and distance to nearest buildings
 cp <- 1    ## set cropland mask to 1 (present)
-bd <- 0.5  ## set maximum distance to the nearest "buildings" (in km)
+bd <- 0.5  ## set maximum distance to the nearest "buildings" (in km) ... for logistical reasons
 roi <- overlay(grids, fun=function(x) 
 {return(ifelse(x[4] == cp && x[2] <= bd, 1, 0))}) ## extracts ROI
 
