@@ -110,7 +110,7 @@ gadm <- sloc %over% shape
 sloc <- as.data.frame(sloc)
 samp <- cbind(gadm[ ,c(4,6,8,10,12)], sloc)
 colnames(samp) <- c("province","district","sector","cell","village","gid","lon","lat")
-write.csv(samp, "RW_MS_sample.csv", row.names = F)
+write.csv(samp, "RW_cropland_sample.csv", row.names = F)
 ```
 
 You can also generate a zoomable map of the proposed survey locations with the `leaflet` package. This shows the proposed distribution of survey sites, which will also help with navigation and operational planning on the ground.
