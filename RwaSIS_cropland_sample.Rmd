@@ -114,7 +114,7 @@ colnames(samp) <- c("province","district","sector","cell","village","gid","lon",
 write.csv(samp, "RW_cropland_sample.csv", row.names = F)
 ```
 
-This is the corresponding output data frame `samp` of the proposed sampling locations with their corresponding lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file (`RW_cropland_sample.csv`) into your working directory, which you can use as waypoint input to a GPS.  
+This is the corresponding output data frame `samp` of the proposed sampling locations with their corresponding lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file (`RW_cropland_sample.csv`) into your working directory, which you can use as waypoint input to a GPS (see: [GPSBabel](https://www.gpsbabel.org)).  
 \
 ```{r, echo=FALSE}
 datatable(samp)
