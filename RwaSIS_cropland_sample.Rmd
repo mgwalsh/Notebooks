@@ -114,7 +114,7 @@ colnames(samp) <- c("province","district","sector","cell","village","gid","lon",
 write.csv(samp, "RW_cropland_sample.csv", row.names = F)
 ```
 
-The table below is the main output data frame `samp` of the proposed sampling locations with their lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The `GID` is sort of like a military style 10x10 km grid ID that will usually contain several sampling locations. Our practice has been to prioritize survey activities in `GID` that contain at least several locations. The data frame is also written as a csv file `RW_cropland_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)) for in-the-field navigation.
+The table below is the main output data frame `samp` of the proposed sampling locations with their lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The `GID` is sort of like a military style 10x10 km grid ID that will usually contain several sampling locations. Our practice has been to prioritize survey activities in `GID` that contain at least several locations. The data frame is also written as a csv file `RW_cropland_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)), tablet or smart phone for in-the-field navigation.
 
 \
 ```{r, echo=FALSE}
