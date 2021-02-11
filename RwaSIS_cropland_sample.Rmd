@@ -50,7 +50,7 @@ glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 ```
 
-The subsequent chunk then then sets-up the layers for drawing a spatially balanced trial location sampling frame from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
+The subsequent chunk then then sets-up the layers for drawing a spatially balanced survey location sample from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
 
 ```{r}
 # Sample setup ------------------------------------------------------------
@@ -77,12 +77,12 @@ n <- round(N/16*0.15,0) ## set sample size (number of sampling locations)
 p <- rep(n/N,N)  ## inclusion probabilities
 
 # draw geographically balanced sample
-set.seed(6405)                      ## sets repeatable randomization seed
+set.seed(6405)                      ## sets randomization seed, note if you change this you will get different results
 B <- cbind(p, rmask[,1], rmask[,2]) ## specifies spatial balancing variables
-rsamp <- cube(p, B)                 ## samples from ROI
+rsamp <- cube(p, B)                 ## samples from the ROI
 ```
 
-The proposed location coordinates and grid ID's (GID's see in the chunk below) can be exported as a GPS readable file (see the options at e.g, [GPSBabel](https://www.gpsbabel.org)), with which field crews can navigate to the planned survey locations.
+The next chunk generates geenerates various output files, which can be used to for survey planning and field navigation.
 
 ```{r}
 # Write files -------------------------------------------------------------
@@ -114,7 +114,7 @@ colnames(samp) <- c("province","district","sector","cell","village","gid","lon",
 write.csv(samp, "RW_cropland_sample.csv", row.names = F)
 ```
 
-This is the corresponding output data frame `samp` of the proposed sampling locations with their corresponding lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file `RW_cropland_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)) for in-the-field navigation.
+This is the main output data frame `samp` of the proposed sampling locations with their lon/lat coordinates, which can be sorted by various administrative units and/or `GID`. The data frame is also written as a csv file `RW_cropland_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)) for in-the-field navigation.
 
 \
 ```{r, echo=FALSE}
