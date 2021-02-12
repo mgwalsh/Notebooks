@@ -11,7 +11,7 @@ output:
 
 # Introduction
 
-This notebook describes setting up a field sampling plan that provides representative spatial coverage over any given landscape or [Region of Interest (ROI)](https://en.wikipedia.org/wiki/Region_of_interest). Selecting an ROI for ground sampling or experimentation is a critical step, because it determines both the main and recurrent costs of any adaptive mapping or monitoring program as well as the resulting precision and accuracy of inferences and predictions that are made about that ROI. A geograhically consistent field sampling plan for experiments should therefore always be defined in terms of the immediate needs and constraints of the measurement, mapping and monitoring tasks at hand, but within a long-term planning context.
+This notebook describes setting up a field sampling plan that provides representative spatial coverage over any given landscape or [Region of Interest (ROI)](https://en.wikipedia.org/wiki/Region_of_interest). Selecting an ROI for ground sampling or experimentation is a critical step, because it determines both the main and recurrent costs of any adaptive mapping or monitoring program as well as the resulting precision and accuracy of inferences and predictions that are made about that ROI. A geograhically consistent field sampling plan for experiments should therefore always be defined in terms of the immediate needs and constraints of the measurement, mapping and monitoring tasks at hand, but within a long-term planning context. The markdown .Rmd script for this can be downloaded at [GAIA sample](GAIA lime application experiment sampling frame).
 
 # GAIA sampling plan R-script
 
