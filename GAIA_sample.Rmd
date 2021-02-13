@@ -109,12 +109,12 @@ crs(xy) <- "+proj=laea +ellps=WGS84 +lon_0=20 +lat_0=5 +units=m +no_defs"
 sloc <- spTransform(xy, CRS(proj4string(shape)))
 gadm <- sloc %over% shape
 sloc <- as.data.frame(sloc)
-samp <- cbind(gadm[ ,c(4,7)], sloc)
+samp <- cbind(gadm[ ,c(2,4,7)], sloc)
 colnames(samp) <- c("L1","L2","gid","lon","lat")
 write.csv(samp, "GAIA_sample.csv", row.names = F)
 ```
 
-The table below is the main output data frame `samp` of the proposed trial locations with their lon/lat coordinates, which can be sorted by Level 1 & 2 administrative units and/or `GID`. The `GID` is like a military style 10x10 km grid ID that may contain several sampling locations depending on the spatial distribution of potential sites (see `N`, above) within the ROI. Our practice has been to prioritize field activities in `GID` that contain at least several trial locations. The data frame is also written as a csv file `GAIA_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)), tablet or smart phone for in-the-field navigation.
+The table below is the main output data frame `samp` of the proposed trial locations with their lon/lat coordinates, which can be sorted by Level 0-2 national administrative units [GADM](https://gadm.org/data.html) and/or `GID`. The `GID` is like a military style 10x10 km grid ID that may contain several sampling locations depending on the spatial distribution of potential sites (see `N`, above) within the ROI. Our practice has been to prioritize field activities in `GID` that contain at least several trial locations. The data frame is also written as a csv file `GAIA_sample.csv` into your working directory, which you can use as waypoint input to a GPS (see e.g: [GPSBabel](https://www.gpsbabel.org)), tablet or smart phone for in-the-field navigation.
 
 \
 ```{r, echo=FALSE}
