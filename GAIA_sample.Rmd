@@ -110,7 +110,7 @@ sloc <- spTransform(xy, CRS(proj4string(shape)))
 gadm <- sloc %over% shape
 sloc <- as.data.frame(sloc)
 samp <- cbind(gadm[ ,c(2,4,7)], sloc)
-colnames(samp) <- c("L1","L2","gid","lon","lat")
+colnames(samp) <- c("Country","L1","L2","gid","lon","lat")
 write.csv(samp, "GAIA_sample.csv", row.names = F)
 ```
 
