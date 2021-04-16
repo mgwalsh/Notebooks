@@ -18,6 +18,18 @@ This notebook describes setting up a field sampling plan that provides represent
 These are the R-packages that you will need to run the spatially balanced sampling script that we are proposing.
 
 ```{r}
+# package names
+packages <- c("rgdal", "raster", "sp", "BalancedSampling", "DT", "leaflet", "htmlwidgets")
+
+# install packages
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# load packages
+invisible(lapply(packages, library, character.only = TRUE))
+
 # install.packages(c("rgdal","raster","BalancedSampling","DT","leaflet","htmlwidgets"), dependencies=T)
 suppressPackageStartupMessages({
   require(rgdal)
@@ -49,7 +61,7 @@ glist <- list.files(pattern="tif", full.names=T)
 grids <- stack(glist)
 ```
 
-The subsequent chunk then then sets-up the layers for drawing a spatially balanced survey location sample from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Tillé (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to speciﬁed covariates and/or constraints. 
+The subsequent chunk then then sets-up the layers for drawing a spatially balanced survey location sample from the ROI. We use the `overlay` and `lcube` functions from the `raster` (to create the ROI) and `BalancedSampling` (to sample the ROI) libraries in R [(R Core Team)](https://cran.univ-paris1.fr/web/packages/dplR/vignettes/intro-dplR.pdf) to draw a spatially representative sample. The method implements the cube method of [Deville and Till?? (2004)](https://academic.oup.com/biomet/article-abstract/91/4/893/459329?redirectedFrom=fulltext), which allows sampling based on the relevant inclusion probabilities while aiming for balance and spread with respect to specified covariates and/or constraints. 
 
 ```{r}
 # Sample setup ------------------------------------------------------------
