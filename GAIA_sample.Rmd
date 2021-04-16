@@ -29,17 +29,6 @@ if (any(installed_packages == FALSE)) {
 
 # load packages
 invisible(lapply(packages, library, character.only = TRUE))
-
-# install.packages(c("rgdal","raster","BalancedSampling","DT","leaflet","htmlwidgets"), dependencies=T)
-suppressPackageStartupMessages({
-  require(rgdal)
-  require(raster)
-  require(sp)
-  require(BalancedSampling)
-  require(DT)
-  require(leaflet)
-  require(htmlwidgets)
-})
 ```
 
 The following chunk downloads the needed geotiffs and shape file, which define the GAIA project's ROI (i.e, cropland && topsoil pH <= 6.5 && the relevant administrative units to the GAIA project in Tanzania, Rwanda, Ethiopia & Kenya. Note that the administrative units have different area coverages within the overall ROI of the project and will be weighted accordingly based on their inclusion probabilities.
